@@ -1,0 +1,7 @@
+In this assignment, I built a complete sentiment analysis pipeline using Hugging Face’s transformers and datasets libraries. The goal was to classify IMDb movie reviews as positive or negative using a fine-tuned BERT model.
+
+I started by loading the IMDb dataset using load_dataset, then used the bert-base-uncased tokenizer to preprocess the reviews by truncating and padding them appropriately. After tokenization, I fine-tuned a pre-trained BertForSequenceClassification model on a subset of the training data for efficiency.
+
+The model was trained using the Trainer API, which simplified training and evaluation. I defined evaluation metrics like accuracy and F1-score using Scikit-learn. After training, the model was saved locally and loaded again to perform inference on new text inputs.
+
+This pipeline is modular and easy to extend. One challenge was managing the memory and compute requirements of BERT models. To address this, I used a smaller subset of data and reduced the number of training epochs. For large-scale usage, better hardware like GPUs and gradient checkpointing would be helpful.
